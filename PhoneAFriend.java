@@ -18,21 +18,22 @@ public class PhoneAFriend {
             "53",
             "\u221A2 (Square root of 2)" };
     private final String[] PROMPTS = {
-            "Your Friend Says: Its Jupiter",
-            "Your Friend Says: Of Course Its William Shakespeare",
-            "Your Friend Says: Its Carbon dioxide Man",
-            "Your Friend Says: I Think Its AU",
-            "Your Friend Says: Of Course Its Blue Whale Dont You Know The Size Of A Blue Whale",
-            "Your Friend Says: Im Sure Its 4",
-            "Your Friend Says: Im Sure Its Filipino",
-            "Your Friend Says: Of Course Its Ares",
-            "Your Friend Says: I Believe Its XY",
-            "Your Friend Says: Its February Try To Look In Calendar Next Time ",
-            "Your Friend Says: Its Friction",
-            "Your Friend Says: 13.8 billion years ",
-            "Your Friend Says: Uranium (U) ",
-            "Your Friends Says: 53 ",
-            "Your Friend Says: \u221A2 (Square root of 2)" };
+    	    "Your friend confidently suggests: Is it Jupiter?",
+    	    "Your friend's firm answer is: It's William Shakespeare, no doubt.",
+    	    "Your friend asserts: Carbon dioxide is the correct answer.",
+    	    "Your friend states: It must be Au (Gold).",
+    	    "Your friend is convinced: The answer is the Blue Whale, the largest mammal.",
+    	    "Your friend's response is: It's definitely 4.",
+    	    "Your friend's recommendation is: It's Filipino, I'm certain.",
+    	    "Your friend confidently claims: Ares is the right choice.",
+    	    "Your friend's opinion is: I believe it's XY.",
+    	    "Your friend advises: It's February, check the calendar next time.",
+    	    "Your friend's response is: It's undoubtedly Friction.",
+    	    "Your friend states: The age of the universe is 13.8 billion years.",
+    	    "Your friend suggests: The answer is Uranium (U).",
+    	    "Your friend firmly asserts: It's 53, no doubt about it.",
+    	    "Your friend's answer is: It's the square root of 2 (√2)."
+    	};
 
     private int answerIndex;
     private String prompt;
