@@ -18,7 +18,7 @@ public class PhoneAFriend {
             "53",
             "\u221A2 (Square root of 2)" };
     private final String[] PROMPTS = {
-    	    "Your friend confidently suggests: Is it Jupiter?",
+    	    "Your friend confidently suggests: Is it Jupiter",
     	    "Your friend's firm answer is: It's William Shakespeare, no doubt.",
     	    "Your friend asserts: Carbon dioxide is the correct answer.",
     	    "Your friend states: It must be Au (Gold).",
