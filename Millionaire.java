@@ -267,9 +267,8 @@ public class Millionaire {
 
     private void askToContinue() {
         while (true) {
-            System.out.print(
-                    "You've done incredibly well, reaching Round " + round
-                            + ", and now you're at a pivotal moment. Do you want to continue and play for the million-dollar prize? (Y/N) ");
+        	System.out.print("You've done incredibly well, reaching Round " + round);
+        	System.out.print(", and now you're at a pivotal moment. Do you want to continue and play for the million-dollar prize? (Y/N) ");
             String inputContinueChoice = scanner.nextLine().toUpperCase();
 
             if (inputContinueChoice.isEmpty()) {
