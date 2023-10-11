@@ -98,9 +98,10 @@ public class Millionaire {
     private void displayTitle() {
         playerName = player.getPlayerName();
 
-        System.out.println("\nHi " + playerName
-                + ". Welcome to Who Wants to be a Millionaire! As I'm sure you know, you will have to answer 15 questions correctly in a row to be a Millionaire. But you have 3 lifelines to work with: 50/50, ask the audience and call your friend. So "
-                + playerName + " let's begin!\n");
+        System.out.println("Hi " + playerName + ". Welcome to Who Wants to be a Millionaire!");
+        System.out.println("As I'm sure you know, you will have to answer 15 questions correctly in a row to be a Millionaire.");
+        System.out.println("But you have 3 lifelines to work with: 50/50, ask the audience, and call your friend.");
+        System.out.println("So " + playerName + ", let's begin!\n");
     }
 
     private void displayQuestion(Question[] questions, int offset) {
@@ -199,13 +200,11 @@ public class Millionaire {
             check(choices, answer);
 
         } else {
-            if (round == 5 || round == 10) {
-                System.out.println(
-                        "\nCongratulations! You've just reached the 'safe zone' and secured a guaranteed prize of $"
-                                + prize
-                                + "! No matter what happens from this point forward, you won't leave with less than $"
-                                + prize + ". Well done!");
-            }
+        	if (round == 5 || round == 10) {
+        	    System.out.println("\nCongratulations! You've just reached the 'safe zone' and secured a guaranteed prize of $" + prize + "!");
+        	    System.out.println("No matter what happens from this point forward, you won't leave with less than $" + prize + ".");
+        	    System.out.println("Well done!");
+        	}
 
             if (answer.isCorrect(convertedChoice)) {
                 player.setBalance(winAmount);
@@ -231,9 +230,14 @@ public class Millionaire {
                     player.setBalance(safeZone2Amount);
                 }
 
-                System.out.println(
-                        "\nYou answered incorrectly, but you're still walking away with $" + player.getBalance()
-                                + "!");
+                if (round > 1) {
+                    System.out.println(
+                            "\nYou answered incorrectly, but you're still walking away with $" + player.getBalance()
+                                    + "!");
+                } else {
+                	System.out.println("\nUnfortunately, you didn't win any money this time.");
+                	System.out.println("Don't worry, there's always another chance to win! Better luck next time!");
+                }
                 System.exit(1);
             }
         }
