@@ -23,7 +23,7 @@ public class Player {
             System.out.print("Enter your name: ");
             playerName = scanner.nextLine().trim();
 
-            // Check if the trainer entered their name
+            // Check if the player entered their name
             if (playerName.isEmpty()) {
                 System.out.println("Please enter your name. It cannot be empty.");
                 continue;
