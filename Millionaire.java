@@ -98,10 +98,10 @@ public class Millionaire {
     private void displayTitle() {
         playerName = player.getPlayerName();
 
-        System.out.println("Hi " + playerName + ". Welcome to Who Wants to be a Millionaire!");
-        System.out.println("As I'm sure you know, you will have to answer 15 questions correctly in a row to be a Millionaire.");
-        System.out.println("But you have 3 lifelines to work with: 50/50, ask the audience, and call your friend.");
-        System.out.println("So " + playerName + ", let's begin!\n");
+        System.out.println("\nHi " + playerName
+                + ". Welcome to Who Wants to be a Millionaire! As I'm sure you know, you will have to answer 15 questions correctly in a row to be a Millionaire.");
+        System.out.println("But you have 3 lifelines to work with: 50/50, ask the audience and call your friend.");
+        System.out.println("So " + playerName + " let's begin!\n");
     }
 
     private void displayQuestion(Question[] questions, int offset) {
@@ -200,11 +200,13 @@ public class Millionaire {
             check(choices, answer);
 
         } else {
-        	if (round == 5 || round == 10) {
-        	    System.out.println("\nCongratulations! You've just reached the 'safe zone' and secured a guaranteed prize of $" + prize + "!");
-        	    System.out.println("No matter what happens from this point forward, you won't leave with less than $" + prize + ".");
-        	    System.out.println("Well done!");
-        	}
+            if (round == 5 || round == 10) {
+                System.out.println(
+                        "\nCongratulations! You've just reached the 'safe zone' and secured a guaranteed prize of $"
+                                + prize
+                                + "! No matter what happens from this point forward, you won't leave with less than $"
+                                + prize + ". Well done!");
+            }
 
             if (answer.isCorrect(convertedChoice)) {
                 player.setBalance(winAmount);
@@ -224,10 +226,10 @@ public class Millionaire {
                         + " in your pocket. Well done!\n");
 
             } else {
-                if (round > 5 && round < 10) {
-                    player.setBalance(safeZone1Amount);
-                } else if (round >= 11 && round < 15) {
-                    player.setBalance(safeZone2Amount);
+                if (round > 5 && round <= 10) { // 6-10
+                    player.setBalance(safeZone1Amount); // 1k
+                } else if (round >= 11 && round < 15) {// 11-14
+                    player.setBalance(safeZone2Amount);// 32k
                 }
 
                 if (round > 1) {
@@ -235,40 +237,45 @@ public class Millionaire {
                             "\nYou answered incorrectly, but you're still walking away with $" + player.getBalance()
                                     + "!");
                 } else {
-                	System.out.println("\nUnfortunately, you didn't win any money this time.");
-                	System.out.println("Don't worry, there's always another chance to win! Better luck next time!");
+                    System.out.println("\nYou didn't win any money this time. Better luck next time!");
                 }
-                System.exit(1);
+                System.exit(0);
             }
         }
     }
 
     private boolean askIfFinalAnswer() {
-        while (true) {
-            System.out.print("Is that your final answer? (Y/N) ");
-            String inputFinalAnswerChoice = scanner.nextLine().toUpperCase();
+        if (choice != 'E') {
+            while (true) {
+                System.out.print("Is that your final answer? (Y/N) ");
+                String inputFinalAnswerChoice = scanner.nextLine().toUpperCase();
 
-            if (inputFinalAnswerChoice.isEmpty()) {
-                System.out.println("Please enter 'Y' for Yes or 'N' for No.");
-                continue;
-            } else {
-                finalAnswerChoice = inputFinalAnswerChoice.charAt(0);
-            }
+                if (inputFinalAnswerChoice.isEmpty()) {
+                    System.out.println("Please enter 'Y' for Yes or 'N' for No.");
+                    continue;
+                } else {
+                    finalAnswerChoice = inputFinalAnswerChoice.charAt(0);
+                }
 
-            if (finalAnswerChoice == 'N') {
-                return false;
-            } else if (finalAnswerChoice == 'Y') {
-                return true;
-            } else {
-                System.out.println("Please enter 'Y' for Yes or 'N' for No.");
+                if (finalAnswerChoice == 'N') {
+                    return false;
+                } else if (finalAnswerChoice == 'Y') {
+                    return true;
+                } else {
+                    System.out.println("Please enter 'Y' for Yes or 'N' for No.");
+                }
             }
+        } else {
+            return true;
         }
     }
 
     private void askToContinue() {
         while (true) {
-        	System.out.print("You've done incredibly well, reaching Round " + round);
-        	System.out.print(", and now you're at a pivotal moment. Do you want to continue and play for the million-dollar prize? (Y/N) ");
+            System.out.println(
+                    "You've done incredibly well, reaching Round " + round
+                            + ", and now you're at a pivotal moment.");
+            System.out.print("Do you want to continue and play for the million-dollar prize? (Y/N) ");
             String inputContinueChoice = scanner.nextLine().toUpperCase();
 
             if (inputContinueChoice.isEmpty()) {
@@ -344,7 +351,7 @@ public class Millionaire {
                 continue;
             }
 
-            // Check if the number is between 1 and 4
+            // Check if the number is between 1 to 4
             switch (lifelineChoice) {
                 case 1:
                     if (lifeline1Used) {
