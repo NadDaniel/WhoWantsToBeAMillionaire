@@ -30,6 +30,7 @@ public class Question {
         return choiceLabels;
     }
 
+    // ternary operator
     public boolean isCorrect(String userAnswer) {
         return (userAnswer.equals(answer)) ? true : false;
     }
