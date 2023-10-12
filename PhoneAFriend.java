@@ -1,4 +1,8 @@
+import java.util.Scanner;
+
 public class PhoneAFriend {
+
+    private Scanner scanner = new Scanner(System.in);
 
     private String answer;
     private final String[] ANSWERS = {
@@ -17,25 +21,34 @@ public class PhoneAFriend {
             "Uranium (U)",
             "53",
             "\u221A2 (Square root of 2)" };
+    private final String[] FRIENDS_NAME = {
+            "Maria",
+            "Juan",
+            "Andrea",
+            "Jose",
+            "Isabella"
+    };
     private final String[] PROMPTS = {
-    	    "Your friend confidently suggests: Is it Jupiter",
-    	    "Your friend's firm answer is: It's William Shakespeare, no doubt.",
-    	    "Your friend asserts: Carbon dioxide is the correct answer.",
-    	    "Your friend states: It must be Au (Gold).",
-    	    "Your friend is convinced: The answer is the Blue Whale, the largest mammal.",
-    	    "Your friend's response is: It's definitely 4.",
-    	    "Your friend's recommendation is: It's Filipino, I'm certain.",
-    	    "Your friend confidently claims: Ares is the right choice.",
-    	    "Your friend's opinion is: I believe it's XY.",
-    	    "Your friend advises: It's February, check the calendar next time.",
-    	    "Your friend's response is: It's undoubtedly Friction.",
-    	    "Your friend states: The age of the universe is 13.8 billion years.",
-    	    "Your friend suggests: The answer is Uranium (U).",
-    	    "Your friend firmly asserts: It's 53, no doubt about it.",
-    	    "Your friend's answer is: It's the square root of 2 (√2)."
-    	};
+            "Its Jupiter",
+            "Of Course Its William Shakespeare",
+            "Its Carbon dioxide Man",
+            "I Think Its AU",
+            "Of Course Its Blue Whale Dont You Know The Size Of A Blue Whale",
+            "Im Sure Its 4",
+            "Im Sure Its Filipino",
+            "Of Course Its Ares",
+            "I Believe Its XY",
+            "Its February Try To Look In Calendar Next Time",
+            "Its Friction",
+            "13.8 billion years",
+            "Uranium",
+            "53",
+            "\u221A2 (Square root of 2)" };
 
     private int answerIndex;
+    private String inputFriendChoice;
+    private String friendName;
+    private int friendChoice;
     private String prompt;
 
     public PhoneAFriend(Question question) {
@@ -48,10 +61,41 @@ public class PhoneAFriend {
                 answerIndex = i;
             }
         }
-
-        prompt = PROMPTS[answerIndex];
+        friendName = pickFriend();
+        prompt = "Your friend " + friendName + " says: " + PROMPTS[answerIndex];
         System.out.println("\nYou use Phone a Friend lifeline.");
         System.out.println(prompt);
+    }
+
+    private String pickFriend() {
+        System.out.println("\nChoose a friend to call:");
+        for (int i = 0; i < FRIENDS_NAME.length; i++) {
+            System.out.println((i + 1) + ") " + FRIENDS_NAME[i]);
+        }
+
+        while (true) {
+            System.out.print("Choice: ");
+            inputFriendChoice = scanner.nextLine();
+
+            if (inputFriendChoice.isEmpty()) {
+                System.out.println("Please enter a number.");
+                continue;
+            }
+
+            try {
+                friendChoice = Integer.parseInt(inputFriendChoice);
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number.");
+                continue;
+            }
+
+            if (friendChoice >= 1 && friendChoice <= 5) {
+                return FRIENDS_NAME[friendChoice - 1];
+            } else {
+                System.out.println("Please enter between 1 to 5 only.");
+                continue;
+            }
+        }
     }
 
 }
