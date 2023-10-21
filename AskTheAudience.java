@@ -3,7 +3,7 @@ import java.util.Random;
 public class AskTheAudience {
 
     private Random random = new Random();
-
+ //variables of AskTheAudience
     private String answer;
     private String[] choices;
     private int correctAnswerPercentage;
@@ -19,7 +19,7 @@ public class AskTheAudience {
     }
 
     public void display() {
-        correctAnswerPercentage = random.nextInt(21) + 60; // 60-80%
+        correctAnswerPercentage = random.nextInt(21) + 60; // 60-80% right answer
 
         remainingPercentage = 100 - correctAnswerPercentage;
         incorrectChoice1 = random.nextInt(remainingPercentage);
