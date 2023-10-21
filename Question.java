@@ -1,5 +1,6 @@
 public class Question {
 
+    // variabiles question
     private String question;
     private String[] choices;
     private String answer;
