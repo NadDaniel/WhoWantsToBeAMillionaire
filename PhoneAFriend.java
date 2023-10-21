@@ -45,6 +45,7 @@ public class PhoneAFriend {
             "53",
             "\u221A2 (Square root of 2)" };
 
+    // PhoneAFriend object
     private int answerIndex;
     private String inputFriendChoice;
     private String friendName;
@@ -77,6 +78,7 @@ public class PhoneAFriend {
             System.out.print("Choice: ");
             inputFriendChoice = scanner.nextLine();
 
+            // error handler
             if (inputFriendChoice.isEmpty()) {
                 System.out.println("Please enter a number.");
                 continue;
