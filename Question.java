@@ -9,6 +9,7 @@ public class Question {
     public Question() {
     }
 
+    //assign parameters to variabile
     public Question(String question, String[] choices, String answer) {
         this.question = question;
         this.choices = choices;
