@@ -336,6 +336,7 @@ public class Millionaire {
         askTheAudience = new AskTheAudience(question);
         phoneAFriend = new PhoneAFriend(question);
 
+        // print the available lifelines
         System.out.println("\nLifelines:");
         if (!lifeline1Used) {
             System.out.println(lifeline1);
