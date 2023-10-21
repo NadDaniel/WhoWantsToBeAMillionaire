@@ -94,7 +94,7 @@ public class Millionaire {
         displayTitle();
         displayEasyQuestion();
     }
-
+// Welcome Prompt
     private void displayTitle() {
         playerName = player.getPlayerName();
 
@@ -118,19 +118,23 @@ public class Millionaire {
                         "If you answer this question correctly, you'll reach the 'safe zone' and secure a $"
                                 + prize + " prize.\n");
             }
-
+            
+// randomized question print
             int randomQuestionIndex = random.nextInt(QUESTIONS_PER_ROUND - q);
             Question selectedQuestion = questions[randomQuestionIndex];
             System.out.println((q + offset) + ". " + selectedQuestion.getQuestion());
-
+            
+// print choices
             for (int i = 0; i < choiceLabels.length; i++) {
                 System.out.println(choiceLabels[i] + selectedQuestion.getChoices()[i]);
             }
-
+            
+// print lifelines if not used
             if (!lifeline1Used || !lifeline2Used || !lifeline3Used) {
                 System.out.println("E) Use lifeline");
             }
-
+            
+// switch into check method
             check(selectedQuestion.getChoices(), selectedQuestion);
             if (offset == 6 || offset == 11) {
                 askToContinue();
@@ -158,7 +162,8 @@ public class Millionaire {
     private void displayHardQuestion() {
         displayQuestion(hardQuestions, 11);
     }
-
+    
+// check method
     private void check(String[] choices, Question answer) {
         while (true) {
             System.out.print("Choice: ");
@@ -180,6 +185,7 @@ public class Millionaire {
                     continue;
                 }
                 break;
+                // error handler
             } else {
                 System.out.println("Invalid choice. Choose between A-E only.");
                 continue;
@@ -189,17 +195,21 @@ public class Millionaire {
 
         convertedChoice = convertChoice(choice, choices, answer);
         winAmount = setWinAmount();
-
+        
+// E choices
         if (convertedChoice == "50/50"
                 || convertedChoice == "Ask the Audience"
-                || convertedChoice == "Phone a Friend") {
+            || convertedChoice == "Phone a Friend") {
+            //recursion loop in line 167
             check(choices, answer);
 
+            //recursion loop in line 167 with Exiting lifeline menu
         } else if (convertedChoice.isEmpty()) {
             System.out.println("\nExiting lifeline menu.");
             check(choices, answer);
-
+            
         } else {
+            // if reach question 5 and 10
             if (round == 5 || round == 10) {
                 System.out.println(
                         "\nCongratulations! You've just reached the 'safe zone' and secured a guaranteed prize of $"
@@ -250,6 +260,7 @@ public class Millionaire {
                 System.out.print("Is that your final answer? (Y/N) ");
                 String inputFinalAnswerChoice = scanner.nextLine().toUpperCase();
 
+                // error handler
                 if (inputFinalAnswerChoice.isEmpty()) {
                     System.out.println("Please enter 'Y' for Yes or 'N' for No.");
                     continue;
@@ -304,6 +315,7 @@ public class Millionaire {
     }
 
     private String convertChoice(char choice, String[] choices, Question question) {
+        // switch statement
         switch (choice) {
             case 'A':
                 return choices[0];
