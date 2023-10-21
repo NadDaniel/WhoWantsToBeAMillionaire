@@ -57,6 +57,7 @@ public class Millionaire {
             new String[] { "\u03C0 (Pi)", "e (Euler's number)", "\u221A2 (Square root of 2)", "0 (Zero)" },
             "\u221A2 (Square root of 2)");
 
+    // variable questions
     private final int QUESTIONS_PER_ROUND = 5;
     private Question[] easyQuestions = { question1, question2, question3, question4, question5 };
     private Question[] mediumQuestions = { question6, question7, question8, question9, question10 };
