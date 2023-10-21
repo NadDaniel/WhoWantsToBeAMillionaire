@@ -234,6 +234,7 @@ public class Millionaire {
                     System.exit(0); // Exit the game
                 }
 
+                // if not round 15
                 System.out.println("\nThat's correct!");
                 System.out.println("\nCongratulations on advancing to the next round!");
                 System.out.println("You've made it to Round " + (round + 1) + " with $" +
