@@ -76,10 +76,13 @@ public class Millionaire {
     private char finalAnswerChoice;
     private char continueChoice;
 
+    //lifelines variables
     private String lifeline1 = "1) 50/50";
     private String lifeline2 = "2) Ask the Audience";
     private String lifeline3 = "3) Phone a Friend";
     private int lifelineChoice;
+
+    //if lifelines use they will vanished
     private boolean lifeline1Used = false;
     private boolean lifeline2Used = false;
     private boolean lifeline3Used = false;
