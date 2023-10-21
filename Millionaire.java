@@ -139,7 +139,8 @@ public class Millionaire {
             if (offset == 6 || offset == 11) {
                 askToContinue();
             }
-
+            
+//removed selected question in the array
             for (int i = randomQuestionIndex; i < QUESTIONS_PER_ROUND - q - 1; i++) {
                 questions[i] = questions[i + 1];
             }
