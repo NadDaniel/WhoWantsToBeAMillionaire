@@ -123,7 +123,7 @@ public class Millionaire {
                                 + prize + " prize.\n");
             }
             
-// randomized question print
+// randomized question 
             int randomQuestionIndex = random.nextInt(QUESTIONS_PER_ROUND - q);
             Question selectedQuestion = questions[randomQuestionIndex];
             System.out.println((q + offset) + ". " + selectedQuestion.getQuestion());
