@@ -4,6 +4,7 @@ public class FiftyFifty {
 
     private Random random = new Random();
 
+    //variables of 50/50
     private String[] woRightAnswer;
     private String[] updatedChoices;
     private int answerIndex;
@@ -19,6 +20,7 @@ public class FiftyFifty {
         choices = question.getChoices();
         answer = question.getAnswer();
 
+        //run both of them
         removeRightAnswer();
         setNewChoices();
     }
@@ -27,14 +29,16 @@ public class FiftyFifty {
         return woRightAnswer;
     }
 
+    
     public String[] getUpdatedChoices() {
         return updatedChoices;
     }
-
+    
     private void removeRightAnswer() {
         woRightAnswer = new String[choices.length - 1];
         int choicesIndex = 0;
 
+        // forloop to remove right answer in the array
         for (String choice : choices) {
             if (!choice.equals(answer)) {
                 woRightAnswer[choicesIndex] = choice;
