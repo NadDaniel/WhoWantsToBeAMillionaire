@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Player {
 
     private Scanner scanner = new Scanner(System.in);
-
     private int balance = 0;
     private String playerName;
 
